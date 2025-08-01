@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+ <html>
+ <body>
+ <p>你喜歡哪一項？</p>
+ 11. 實作練習：
+<button onclick="vote('貓')">貓</button>
+ <button onclick="vote('狗')">狗</button>
+ <button onclick="vote('錢')">錢</button>
+ <button onclick="vote('花')">花</button>
+ <ul id="result"></ul>
+ <script>
+ function vote(choice) {
+ document.getElementById("result").innerHTML += 
+`<li>${choice}</li>`;
+ }
+ </script>
+ </body>
+ </html
