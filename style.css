@@ -1,0 +1,216 @@
+/* style.css — 梵谷風格 (Van Gogh inspired) */
+
+/* 基礎字型與版面 */
+:root{
+  --deep-blue: #16243b;
+  --star-yellow: #f2c94c;
+  --warm-orange: #d9773b;
+  --olive: #6b8e3a;
+  --canvas: #efe8d6;
+  --ink: #1b1b1b;
+}
+
+* { box-sizing: border-box; }
+html,body{
+  height:100%;
+  margin:0;
+  font-family: "Georgia", "Times New Roman", serif;
+  background-color:var(--canvas);
+  color:var(--ink);
+  -webkit-font-smoothing:antialiased;
+  -moz-osx-font-smoothing:grayscale;
+}
+
+/* 背景 — 多層漸層模擬筆觸與旋渦感 */
+body{
+  background-image:
+    /* 細緻橫向筆觸 */
+    repeating-linear-gradient(
+      -20deg,
+      rgba(10,10,10,0.02) 0px,
+      rgba(10,10,10,0.02) 2px,
+      transparent 2px,
+      transparent 10px
+    ),
+    /* 暖色帶 */
+    radial-gradient(circle at 20% 15%, rgba(242,201,76,0.12) 0%, transparent 25%),
+    /* 中心旋渦影響 */
+    radial-gradient(circle at 80% 20%, rgba(217,119,59,0.08) 0%, transparent 20%),
+    /* 主體深藍夜空 */
+    linear-gradient(180deg, var(--deep-blue) 0%, rgba(20,30,50,0.85) 40%, transparent 80%);
+  background-blend-mode: multiply, screen, overlay, normal;
+  padding:32px;
+}
+
+/* 畫布質感的半透明方框，略帶邊緣不規則陰影 */
+.container{
+  max-width:920px;
+  margin:0 auto;
+  background: linear-gradient(180deg, rgba(255,255,255,0.92), rgba(255,250,240,0.85));
+  border-radius:12px;
+  padding:22px 28px;
+  box-shadow:
+    0 6px 18px rgba(10,10,10,0.22),
+    inset 0 1px 0 rgba(255,255,255,0.6);
+  border: 1px solid rgba(30,30,30,0.06);
+}
+
+/* 標題 — 加入旋渦筆觸動畫 */
+h2{
+  margin:6px 0 18px;
+  font-size:1.6rem;
+  letter-spacing:0.03em;
+  color: var(--star-yellow);
+  text-shadow:
+    0 1px 0 rgba(0,0,0,0.25),
+    0 6px 18px rgba(20,20,40,0.6);
+  display:inline-block;
+  padding:6px 12px;
+  border-radius:8px;
+  background: conic-gradient(from 220deg at 50% 50%, rgba(242,201,76,0.18), rgba(217,119,59,0.12), transparent 60%);
+  transform-origin: center;
+  animation: gentle-sway 6s ease-in-out infinite;
+}
+
+/* header 微幅搖晃 (像風吹動的筆觸) */
+@keyframes gentle-sway{
+  0% { transform: rotate(-0.6deg); }
+  50% { transform: rotate(0.8deg); }
+  100% { transform: rotate(-0.6deg); }
+}
+
+/* 表單樣式：仿手繪輸入框 */
+form#signupForm{
+  display:flex;
+  flex-wrap:wrap;
+  gap:12px 16px;
+  align-items:center;
+  margin-bottom:18px;
+}
+
+/* 輸入欄位 */
+#signupForm input[type="text"]{
+  padding:10px 12px;
+  border-radius:8px;
+  border: 2px solid rgba(20,30,40,0.12);
+  background: linear-gradient(180deg, rgba(255,255,255,0.95), rgba(250,245,235,0.9));
+  box-shadow: 0 4px 10px rgba(10,10,20,0.06);
+  min-width:220px;
+  font-size:1rem;
+  outline:none;
+  transition:transform .15s ease, box-shadow .15s ease, border-color .15s ease;
+}
+#signupForm input[type="text"]:focus{
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(20,30,60,0.18);
+  border-color: rgba(217,119,59,0.6);
+}
+
+/* checkbox 樣式 (簡化版) */
+#signupForm input[type="checkbox"]{
+  transform:scale(1.1);
+  margin-right:6px;
+  accent-color: var(--warm-orange);
+}
+
+/* 送出按鈕 — 仿油彩厚重感 */
+#signupForm input[type="submit"]{
+  padding:10px 18px;
+  border-radius:14px;
+  border:none;
+  cursor:pointer;
+  background: linear-gradient(180deg, var(--star-yellow), var(--warm-orange));
+  color: #102030;
+  font-weight:700;
+  box-shadow: 0 6px 18px rgba(20,30,50,0.28);
+  transition: transform .12s ease, box-shadow .12s ease;
+}
+#signupForm input[type="submit"]:active{
+  transform: translateY(2px);
+  box-shadow: 0 3px 8px rgba(20,30,50,0.2);
+}
+
+/* 報名清單表格 — 油畫邊框 + 紙張質感 */
+#resultTable{
+  width:100%;
+  border-collapse:separate;
+  border-spacing:0;
+  background: linear-gradient(180deg, rgba(255,255,255,0.96), rgba(250,245,235,0.96));
+  border-radius:10px;
+  overflow:hidden;
+  box-shadow: 0 8px 20px rgba(10,10,30,0.12);
+}
+
+/* 表頭筆觸感 */
+#resultTable th{
+  text-align:left;
+  padding:10px 14px;
+  background: linear-gradient(90deg, rgba(22,36,59,0.95), rgba(39,66,110,0.9));
+  color:var(--star-yellow);
+  font-size:0.95rem;
+  border-bottom: 4px solid rgba(255,255,255,0.04);
+  letter-spacing:0.06em;
+}
+
+/* 表格列 */
+#resultTable td{
+  padding:12px 14px;
+  font-size:0.95rem;
+  color: rgba(20,20,20,0.9);
+  border-bottom:1px dashed rgba(16,16,16,0.06);
+}
+
+/* 更有畫感的每一列背景交替 */
+#resultTable tr:nth-child(odd) td{
+  background: linear-gradient(90deg, rgba(255,250,245,0.02), rgba(245,240,230,0.02));
+}
+
+/* 小標籤化興趣顯示 */
+.tag{
+  display:inline-block;
+  padding:4px 8px;
+  border-radius:999px;
+  font-size:0.85rem;
+  margin-right:6px;
+  background: linear-gradient(180deg, rgba(217,119,59,0.16), rgba(242,201,76,0.06));
+  box-shadow: inset 0 -2px 6px rgba(0,0,0,0.06);
+  color: #172230;
+}
+
+/* 小裝飾的畫筆痕跡在右上角 */
+.canvas-stroke {
+  position:fixed;
+  right:18px;
+  top:18px;
+  width:120px;
+  height:120px;
+  pointer-events:none;
+  opacity:0.12;
+  background:
+    radial-gradient(circle at 25% 25%, rgba(242,201,76,0.9), transparent 20%),
+    conic-gradient(from 200deg at 50% 50%, rgba(217,119,59,0.6), rgba(107,142,58,0.45), transparent 70%);
+  filter: blur(6px) saturate(110%);
+  transform: rotate(-12deg);
+}
+
+/* 響應式：窄螢幕優化 */
+@media (max-width:640px){
+  body{ padding:18px; }
+  .container{ padding:16px; }
+  #signupForm{ gap:10px; }
+  h2{ font-size:1.2rem; }
+  #signupForm input[type="text"]{ min-width:140px; width:100%; }
+  .canvas-stroke{ display:none; }
+}
+
+/* 可選：小小噪點 (模擬畫布纖維) */
+.canvas-noise {
+  position:fixed;
+  inset:0;
+  pointer-events:none;
+  opacity:0.06;
+  background-image:
+    linear-gradient(transparent 50%, rgba(0,0,0,0.02) 50%);
+  background-size:2px 2px;
+  mix-blend-mode: overlay;
+}
