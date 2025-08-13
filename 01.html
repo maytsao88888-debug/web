@@ -1,12 +1,89 @@
+<form
+action="https://docs.google.com/forms/d/e/1FAIpQLSfzcW4WQaXKhCgFOtCa7cmzH2tRbHPqj9eLuwpwmzMbMlafQA/formResponse"
+method="POST" target=" blank">
+<labe1>姓名:</label>
+<input name="entry.522453355" type="text"><br>
+<labe1>電話:</label>
+<input name="entry.1497867578" type="text"><br>
+<label>喜歡的色</label>
+<select name="entry.1287031151" required>
+    <option value="">請選擇</option>
+    <option value="紅">紅</option>
+    <option value="白">白</option>
+    <option value="綠">綠</option> 
+</select><br>
+<button type="submit">送出</button>
+</form>
 <!DOCTYPE html>
-<html>
+<html lang="zh-Hant">
+<head>
+    <meta charset="UTF-8">
+    <title>表單範例</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 20px;
+        }
+        form {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            max-width: 350px;
+            margin: auto;
+        }
+        label {
+            display: block;
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px 10px;
+            margin-top: 5px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+        }
+        button {
+            display: block;
+            width: 100%;
+            margin-top: 20px;
+            padding: 10px;
+            background-color: #4CAF50;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
 <body>
-     <script>
-         alert('你好，歡迎來到我的網站！');
-       let name = '小明';
-    let greeting = `你好，
-${name}`;  // 注意：模板字串可以跨行
-    console.log(greeting);
-       </script>
+    <form
+        action="https://docs.google.com/forms/d/e/1FAIpQLSfzcW4WQaXKhCgFOtCa7cmzH2tRbHPqj9eLuwpwmzMbMlafQA/formResponse"
+        method="POST" target="_blank">
+
+        <label>姓名:</label>
+        <input name="entry.522453355" type="text">
+
+        <label>電話:</label>
+        <input name="entry.1497867578" type="text">
+
+        <label>喜歡的色:</label>
+        <select name="entry.1287031151" required>
+            <option value="">請選擇</option>
+            <option value="紅">紅</option>
+            <option value="白">白</option>
+            <option value="綠">綠</option> 
+        </select>
+
+        <button type="submit">送出</button>
+    </form>
 </body>
 </html>
